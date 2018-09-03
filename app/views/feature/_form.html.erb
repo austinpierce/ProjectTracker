@@ -1,0 +1,40 @@
+<%= form_for @feature, url: {action: "create"} do |f| %>
+<p>
+	<%= f.collection_select :project_id, @projects, :id, :name %>
+</p>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+</p>
+<p>
+	<%= f.label :estimate %>
+	<%= f.select(:estimate, options_for_select([['Small', 'Small'], ['Medium', 'Medium'], ['Large', 'Large']])) %>
+</p>
+<p>
+	<%= f.label :priority %>
+	<%= f.select(:priority, options_for_select([['Low', 'Low'], ['Normal', 'Normal'], ['High', 'High']])) %>
+</p>
+<p>
+	<%= f.label :dependant_on_code %>
+	<%= f.text_field :dependant_on_code %>
+</p>
+<p>
+	<%= f.label :time_spent %>
+	<%= f.text_field :time_spent %>
+</p>
+<p>
+	<%= f.label :is_complete %>
+	<%= f.check_box :is_complete %>
+</p>
+<p>
+	<%= f.label :git_merge_path %>
+	<%= f.text_field :git_merge_path %>
+</p>
+
+<%= f.submit %>
+
+<% end %>

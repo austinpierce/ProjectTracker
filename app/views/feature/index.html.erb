@@ -1,0 +1,14 @@
+<h1>Index</h1>
+
+<table>
+	<tr>
+		<th>Feature</th>
+		<th>Description</th>
+	</tr>
+<% @features.each do |feature| %>
+	<tr>
+		<td><%= feature.title %></td>
+		<td><%= feature.description %></td>
+	</tr>
+	<% end %>
+</table>
