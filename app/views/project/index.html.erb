@@ -1,0 +1,16 @@
+<h1>Projects</h1>
+
+<table>
+	<tr>
+		<th>Project Name</th>
+		<th>Project Short Name</th>
+		<th>Project Description</th>
+	</tr>
+<% @projects.each do |project| %>
+	<tr>
+		<td><%= project.name %></td>
+		<td><%= project.short_name %></td>
+		<td><%= project.description %></td>
+	</tr>
+<% end %>
+</table>
