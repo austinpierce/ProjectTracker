@@ -1,17 +1,14 @@
 class Feature < ApplicationRecord
-	after_create :feature_code
-	validates :project_id, :project_id => true
-
 	belongs_to :project
+	before_validation :create_code
+	validates :code, presence: true, uniqueness: true
 
-	def self.feature_code
-		project = Project.select("short_name").where("project_id = :project_id").map(&:short_name)
-		num = 10.to_s
-		feat_code = project + '%04i' % num
-		#self.short_name = feat_code
+	private
 
-		#https://stackoverflow.com/questions/8096137/send-parameter-to-before-save
-		#https://www.google.com/search?q=rails+store+form+value+before+passed+to+database&oq=rails+store+form+value+before+passed+to+database&aqs=chrome..69i57.14204j0j4&sourceid=chrome&ie=UTF-8
+	def create_code
+		num = project.features.count + 1
+		num_code = '%04i' % num
+		self.code ||= project&.short_name + num_code
 	end
 
 end
