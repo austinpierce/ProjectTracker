@@ -2,11 +2,15 @@
 
 <table>
 	<tr>
+		<th>Project</th>
+		<th>Code</th>
 		<th>Feature</th>
 		<th>Description</th>
 	</tr>
 <% @features.each do |feature| %>
 	<tr>
+		<td><%= feature.project.name %></td>
+		<td><%= feature.code %></td>
 		<td><%= feature.title %></td>
 		<td><%= feature.description %></td>
 	</tr>

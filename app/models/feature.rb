@@ -7,8 +7,7 @@ class Feature < ApplicationRecord
 
 	def create_code
 		num = project.features.count + 1
-		num_code = '%04i' % num
-		self.code ||= project&.short_name + num_code
+		self.code ||= project&.short_name + '%04i' % num.to_s
 	end
 
 end
