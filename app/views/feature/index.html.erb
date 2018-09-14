@@ -1,12 +1,14 @@
 <h1>Index</h1>
 
-<table>
+<table class="table">
+<thead>
 	<tr>
-		<th>Project</th>
-		<th>Code</th>
-		<th>Feature</th>
-		<th>Description</th>
+		<th scope="col">Project</th>
+		<th scope="col">Code</th>
+		<th scope="col">Feature</th>
+		<th scope="col">Description</th>
 	</tr>
+</thead>
 <% @features.each do |feature| %>
 	<tr>
 		<td><%= feature.project.name %></td>
